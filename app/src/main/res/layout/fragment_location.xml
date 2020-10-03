@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.LocationFragment">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="UselessParent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_70"
+        android:text="@string/please_confirm_your_location_nto_proceed"
+        android:textSize="20sp"
+        android:layout_marginTop="130dp"
+        android:maxWidth="290dp"
+        android:id="@+id/tv1"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/questrial" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/location"
+            android:fontFamily="@font/questrial"
+            android:textSize="15sp"
+            android:layout_margin="10dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/add1"
+            android:hint="@string/address"
+            android:lineHeight="30dp"
+            android:fontFamily="@font/questrial"
+            android:background="@drawable/search_bar"
+            android:minHeight="50dp"
+            tools:targetApi="p"
+            android:inputType="textMultiLine" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/landmark"
+            android:fontFamily="@font/questrial"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_bar"
+            android:id="@+id/landmark_et"
+            android:hint="@string/landmark"
+            android:textDirection="ltr"
+            android:fontFamily="@font/questrial"
+            android:minHeight="50dp"
+            android:inputType="textPostalAddress" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/phone_number"
+            android:fontFamily="@font/questrial"
+            android:textSize="15sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:background="@drawable/search_bar"
+            android:id="@+id/phone_et"
+            android:hint="@string/_91xxxxxxxxx"
+            android:maxLength="10"
+            android:fontFamily="@font/questrial"
+            android:minHeight="50dp"/>
+    </LinearLayout>
+
+</RelativeLayout>
+
+</FrameLayout>

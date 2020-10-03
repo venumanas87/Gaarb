@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/btmsht_bg"
+    android:id="@+id/lang_rl"
+    android:elevation="10dp"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    app:behavior_peekHeight="0dp"
+    android:backgroundTint="@color/lihtgrey"
+    app:behavior_hideable="true">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="40dp"
+        android:layout_height="5dp"
+        android:backgroundTint="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter your registered number"
+            android:id="@+id/regTV"
+            android:layout_above="@id/noET"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:textColor="@color/white"/>
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bar"
+        android:layout_centerInParent="true"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:id="@+id/noET"
+        android:fontFamily="@font/questrial"
+        />
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black_70"
+            android:id="@+id/link"
+            android:text="LINK"
+            app:cornerRadius="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/noET"
+            android:layout_marginTop="20dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

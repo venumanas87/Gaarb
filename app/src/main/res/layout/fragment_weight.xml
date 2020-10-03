@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragments.WeightFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt11"
+        android:textSize="20sp"
+        android:textColor="@color/black_70"
+        android:fontFamily="@font/questrial"
+        android:text="@string/please_choose_the_approx_weight_of_your_garbage"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="20dp"/>
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_below="@id/txt11"
+       android:layout_marginTop="40dp"
+       android:id="@+id/rl11"
+       android:layout_height="wrap_content">
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:id="@+id/wtET"
+        android:background="@drawable/search_bar"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/questrial"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:inputType="number" />
+    <org.angmarch.views.NiceSpinner
+        android:id="@+id/nice_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/wtET"
+        android:layout_above="@id/weight_slider"
+        android:layout_marginStart="10dp"/>
+    <com.google.android.material.slider.Slider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:layout_marginHorizontal="40dp"
+        android:id="@+id/weight_slider"
+        android:valueFrom="0"
+        android:stepSize="1"
+        android:valueTo="1000"
+        android:layout_below="@id/wtET"
+        />
+   </RelativeLayout>
+
+
+ <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="@string/please_select_the_types_nof_garbage"
+     android:layout_below="@id/rl11"
+     android:layout_marginTop="80dp"
+     android:textSize="20sp"
+     android:id="@+id/txt12"
+     android:textColor="@color/black_70"
+     android:fontFamily="@font/questrial"
+     android:layout_marginStart="20dp"/>
+    
+    
+   <RelativeLayout
+       android:layout_width="300dp"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/txt12"
+       android:layout_marginTop="50dp"
+       android:layout_centerHorizontal="true"
+       android:layout_marginBottom="80dp"
+       android:orientation="horizontal">
+       <CheckBox
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/wetG"
+           android:text="@string/wet_garbage"
+           />
+       <CheckBox
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/dryG"
+           android:text="@string/dry_garbage"
+           android:layout_alignParentEnd="true"
+           />
+       <CheckBox
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/medicalG"
+           android:text="@string/medical_dump"
+           android:layout_below="@id/wetG"
+           android:layout_marginTop="10dp"/>
+       <CheckBox
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/chemicalG"
+           android:text="@string/hazardous_dump"
+           android:layout_below="@id/wetG"
+           android:layout_alignParentEnd="true"
+           android:layout_marginTop="10dp"/>
+   </RelativeLayout>
+
+
+
+</RelativeLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/contBtn"
+        android:backgroundTint="@color/black"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="20dp"
+        app:cornerRadius="100dp"
+        android:text="@string/cont"
+        />
+
+</FrameLayout>

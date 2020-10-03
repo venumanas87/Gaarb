@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "578682989273",
+    "firebase_url": "https://gaarb-6976b.firebaseio.com",
+    "project_id": "gaarb-6976b",
+    "storage_bucket": "gaarb-6976b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578682989273:android:7bfab7021b81576a4fecc8",
+        "android_client_info": {
+          "package_name": "xyz.v.gaarb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578682989273-600asvrrt4moddg4m6702ucgaabed5l0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "xyz.v.gaarb",
+            "certificate_hash": "01d4d503c710090f4a31972058a4dd14f023b370"
+          }
+        },
+        {
+          "client_id": "578682989273-om62958bi1fgaqg5sbvilkhuuv3603eb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPiN63G_AwG6bhYouJDZ02K2sL0aE2CDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578682989273-om62958bi1fgaqg5sbvilkhuuv3603eb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

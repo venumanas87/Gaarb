@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.onboarding.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/tool"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="10dp"
+            android:id="@+id/back"
+            android:contentDescription="@string/back" />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up to contribute for a \nclean nation"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/tool"
+        android:layout_marginHorizontal="20dp"
+        android:fontFamily="@font/questrial"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/wrapper"
+        android:layout_centerVertical="true"
+        android:layout_marginHorizontal="20dp"
+        >
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="@string/email"
+            android:id="@+id/emailet"
+            android:autofillHints="" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="@string/name"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/emailet"
+            android:id="@+id/nameet"
+            android:autofillHints="" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/password"
+            android:layout_marginTop="40dp"
+            android:id="@+id/passet"
+            android:layout_below="@id/nameet"
+            android:autofillHints="" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="5dp"
+            android:text="@string/sign_up"
+            android:layout_below="@id/passet"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp"
+            android:layout_marginTop="60dp"
+            android:id="@+id/signup"
+            app:rippleColor="@color/black"
+            android:textColor="@color/white"
+            />
+
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="or"
+        android:textColor="#CC000000"
+        android:textSize="30sp"
+        android:fontFamily="@font/questrial"
+        android:layout_below="@id/wrapper"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/or"
+        android:layout_marginTop="30dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        app:cornerRadius="5dp"
+        android:layout_below="@id/or"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/colorPrimary"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:text="@string/sign_in"
+        android:id="@+id/signin"
+        android:layout_marginBottom="40dp"
+        app:rippleColor="@color/black"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/progress"
+        android:visibility="gone"
+        android:layout_marginBottom="10dp"/>
+
+</RelativeLayout>

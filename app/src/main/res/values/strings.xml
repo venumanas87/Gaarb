@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Gaarb</string>
+    <string name="gaarb">Gaarb.</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign UP</string>
+    <string name="back">back</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello">Hello</string>
+    <string name="sell_garbage">Sell Garbage</string>
+    <string name="location">Location</string>
+    <string name="next">Next</string>
+    <string name="please_confirm_your_location_nto_proceed">Please confirm your details to proceed</string>
+    <string name="landmark">Landmark</string>
+    <string name="address">Address</string>
+    <string name="please_choose_the_approx_weight_of_your_garbage">Please choose the approx. \nweight of your garbage</string>
+    <string name="_91xxxxxxxxx">+91XXXXXXXXX</string>
+    <string name="cont">continue</string>
+    <string name="please_select_the_types_nof_garbage">Please select the types \nof garbage</string>
+    <string name="wet_garbage">Wet Garbage</string>
+    <string name="dry_garbage">Dry Garbage</string>
+    <string name="medical_dump">Medical Dump</string>
+    <string name="hazardous_dump">Hazardous dump</string>
+    <string name="pickup_summary">Pickup Summary</string>
+    <string name="pickup_location">Pickup location</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="phonepe">PhonePe</string>
+    <string name="paytm">Paytm</string>
+    <string name="google_pay">Google Pay</string>
+    <string name="upi">UPI</string>
+    <string name="your_pickup_has_been_confired_nsit_back_and_relax_our_garbage_ncollector_will_contact_you_soon">Your pickup has been confirmed. Sit back and relax, our garbage collector will contact you soon</string>
+    <string name="view">view</string>
+    <string name="weight">Weight :</string>
+</resources>

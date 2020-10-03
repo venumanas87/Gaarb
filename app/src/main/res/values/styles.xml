@@ -1,0 +1,49 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+<style name="ShapeAppearance.MaterialComponents.MediumComponent.Bg" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+    <item name="cornerFamilyTopRight">rounded</item>
+    <item name="cornerSizeTopRight">20dp</item>
+    <item name="cornerFamilyTopLeft">rounded</item>
+    <item name="cornerSizeTopLeft">20dp</item>
+    <item name="cornerFamilyBottomRight">rounded</item>
+    <item name="cornerSizeBottomRight">0dp</item>
+    <item name="cornerFamilyBottomLeft">rounded</item>
+    <item name="cornerSizeBottomLeft">0dp</item>
+</style>
+    <style name="ShapeAppearance.MaterialComponents.MediumComponent.BgC" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeTopRight">40dp</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerSizeTopLeft">40dp</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+    <style name="ShapeAppearance.MaterialComponents.SmallComponent.Btn" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerSizeBottomLeft">20dp</item>
+    </style>
+    <style name="ShapeAppearance.MaterialComponents.SmallComponent.BtnR" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeBottomRight">20dp</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+</resources>
