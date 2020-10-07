@@ -4,4 +4,4 @@ import android.app.Activity
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
 
-class Settings(var image:Int,var title:String,var act:Activity)
+class Settings(var image:Int,var title:String,var func:()->(Unit))

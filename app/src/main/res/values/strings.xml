@@ -35,4 +35,9 @@
     <string name="your_pickup_has_been_confired_nsit_back_and_relax_our_garbage_ncollector_will_contact_you_soon">Your pickup has been confirmed. Sit back and relax, our garbage collector will contact you soon</string>
     <string name="view">view</string>
     <string name="weight">Weight :</string>
+    <string name="amount">Amount :</string>
+    <string name="my_orders">My Orders</string>
+    <string name="pay_amount">Pay Amount</string>
+    <string name="allocate_collector">Allocate Collector</string>
+    <string name="your_total_income">Your total income</string>
 </resources>

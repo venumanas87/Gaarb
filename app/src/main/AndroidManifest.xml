@@ -16,7 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".ui.activities.OrdersActivity"></activity>
+        <activity android:name=".ui.activities.BuyGarbageActivity"></activity>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_stat_name" />
+
+        <activity android:name=".ui.activities.AdminActiviy" />
+        <activity android:name=".ui.activities.OrdersActivity" />
         <activity android:name=".ui.activities.ConfirmedActivity" />
         <activity android:name=".ui.activities.SummaryActivity" />
         <activity android:name=".ui.activities.SellGarbActivity" />
@@ -30,6 +37,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".MessaginService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
         <meta-data
             android:name="preloaded_fonts"

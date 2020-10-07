@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.airbnb.lottie.LottieAnimationView
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
@@ -27,6 +29,8 @@ class ConfirmedActivity : AppCompatActivity() {
         val close:ImageView = findViewById(R.id.close)
         var orderNo:Int? = null
         val orDb = Firebase.firestore
+        val doneAnim:LottieAnimationView = findViewById(R.id.done_anim)
+        doneAnim.speed = 0.5f
 
         orDb.collection("order").document("2020").get()
             .addOnSuccessListener {
@@ -35,7 +39,7 @@ class ConfirmedActivity : AppCompatActivity() {
             }
         close.setOnClickListener {
             startActivity(Intent(this,HomeActivity::class.java))
-            //overridePendingTransition(R.anim.slide_in_from_top,R.anim.slide_out_to_bottom)
+            overridePendingTransition(R.anim.slide_in_from_top,R.anim.screen_slide_out_to_bottom)
         }
     }
 
@@ -45,13 +49,26 @@ class ConfirmedActivity : AppCompatActivity() {
         val nameTV = findViewById<TextView>(R.id.con_name)
         val oidTV = findViewById<TextView>(R.id.oidTV)
         val dateTV = findViewById<TextView>(R.id.dateTV)
+        val canclBtn = findViewById<MaterialButton>(R.id.cancel_button)
+        val ordrHisBtn:MaterialButton = findViewById(R.id.order_history_btn)
         val b: Bundle? = this@ConfirmedActivity.intent.extras
         val id = b?.getString("id")
         val name = b?.getString("name")
         val dt = b?.getString("dateTime")
+        val orderNoo = b?.getInt("orderNO").toString()
         nameTV.text = "Congrats $name!"
         oidTV.text = "Order Id - #$id"
         dateTV.text = "Request Placed On - $dt"
+
+        canclBtn.setOnClickListener {
+            orDb.collection("user").document(uid).collection("orders")
+                .document(orderNoo.toString()).update("status","Cancelled")
+            orDb.collection("all").document(orderNoo).update("status","Cancelled")
+        }
+        ordrHisBtn.setOnClickListener {
+            startActivity(Intent(this,OrdersActivity::class.java))
+            finish()
+        }
     }
 
     override fun onBackPressed() {

@@ -24,6 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/idTV"
             android:text="03.10.2020 at 02:26"
             android:layout_alignParentEnd="true"
             android:fontFamily="@font/questrial"/>
@@ -46,17 +47,45 @@
             android:text="@string/weight"
             android:layout_below="@id/add"
             android:id="@+id/wt"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textColor="@color/black_70"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/wt"
+            android:id="@+id/wtTV"
             android:text="174.0 kgs"
             android:layout_below="@id/add"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:fontFamily="@font/questrial"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/questrial"
+            android:text="@string/amount"
+            android:layout_toStartOf="@id/amtTV"
+            android:layout_below="@id/add"
+            android:id="@+id/amt"
+            android:textSize="17sp"
+            android:textColor="@color/black_70"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="Rs. 20"
+            android:id="@+id/amtTV"
+            android:layout_below="@id/add"
+            android:textSize="17sp"
+            android:fontFamily="@font/questrial"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completed"
+            android:textColor="@color/colorPrimary"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/status"/>
 
     </RelativeLayout>
 

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        app:cardCornerRadius="15dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order ID : 2020030226391"
+                android:fontFamily="@font/questrial"
+                android:textColor="@color/black"
+                android:id="@+id/orderId"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/idTV"
+                android:text="03.10.2020 at 02:26"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/questrial"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Durg Bypass, Kadambari Nagar, Katulbod, Durg, Chhattisgarh 490020, India"
+                android:layout_below="@id/orderId"
+                android:layout_marginHorizontal="20dp"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:id="@+id/add"
+                android:fontFamily="@font/questrial"
+                android:layout_marginVertical="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/questrial"
+                android:text="@string/weight"
+                android:layout_below="@id/add"
+                android:id="@+id/wt"
+                android:textSize="17sp"
+                android:textColor="@color/black_70"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/wt"
+                android:id="@+id/wtTV"
+                android:text="174.0 kgs"
+                android:layout_below="@id/add"
+                android:textSize="17sp"
+                android:fontFamily="@font/questrial"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/questrial"
+                android:text="@string/amount"
+                android:layout_toStartOf="@id/amtTV"
+                android:layout_below="@id/add"
+                android:id="@+id/amt"
+                android:textSize="17sp"
+                android:textColor="@color/black_70"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="Rs. 20"
+                android:id="@+id/amtTV"
+                android:layout_below="@id/add"
+                android:textSize="17sp"
+                android:fontFamily="@font/questrial"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/amtTV"
+                android:id="@+id/name"
+                android:text="Saggz Moifd"
+               android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"/>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/allocate_collector"
+                android:layout_alignParentBottom="true"
+                android:layout_above="@id/status"
+                android:enabled="false"
+                android:id="@+id/allo_btn"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirmed"
+                android:textColor="@color/colorPrimary"
+                android:layout_below="@id/name"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/status"/>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</RelativeLayout>

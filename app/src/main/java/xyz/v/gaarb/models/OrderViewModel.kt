@@ -10,14 +10,16 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import xyz.v.gaarb.objects.Orders
+import xyz.v.gaarb.ui.activities.OrdersActivity
 
 class OrderViewModel:ViewModel() {
     private val orderList:MutableLiveData<List<Orders>> = MutableLiveData()
-
+    private val firestore = Firebase.firestore
+    private val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
+    private val dbRef = firestore.collection("user").document(uid).collection("orders")
+    private val db = FirebaseDatabase.getInstance().getReference("users")
+    var c = 0
     fun getOrderList():LiveData<List<Orders>>{
-        val firestore = Firebase.firestore
-        val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
-        val dbRef = firestore.collection("user").document(uid).collection("orders")
 
         dbRef.addSnapshotListener{value, e ->
             if (e != null) {
@@ -26,14 +28,22 @@ class OrderViewModel:ViewModel() {
             }
             val ol = ArrayList<Orders>()
             for (doc in value!!){
+                c++
                 val order = doc.toObject(Orders::class.java)
                 ol.add(order)
             }
-
+            updateOrderNos(c)
             orderList.postValue(ol)
 
         }
 
         return orderList
     }
+
+   fun updateOrderNos(c:Int){
+        db.child(uid).child("gSold").setValue(c.toString())
+    }
+
+
+
 }

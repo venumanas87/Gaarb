@@ -9,4 +9,5 @@
     <color name="lihtgrey">#6A6A6A</color>
     <color name="lightest_gray">#F1F1F1</color>
     <color name="light_green">#B9F6CA</color>
+    <color name="order_bg">#E8EDE5</color>
 </resources>

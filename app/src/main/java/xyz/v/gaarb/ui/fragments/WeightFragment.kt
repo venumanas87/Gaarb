@@ -108,6 +108,7 @@ class WeightFragment : Fragment() {
                 db.child(uid).child("orders").child(orderNo.toString()).child("measure").setValue(ms)
                  startActivity(Intent(activity,SummaryActivity::class.java))
                 activity?.overridePendingTransition(R.anim.screen_slide_in_from_right,R.anim.screen_slide_out_to_left)
+                activity?.finish()
             }
         }
 

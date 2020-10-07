@@ -8,6 +8,12 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
+import com.github.kittinunf.fuel.Fuel
+import com.github.kittinunf.fuel.core.Headers
+import com.github.kittinunf.fuel.core.extensions.jsonBody
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
@@ -18,7 +24,15 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
+import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.internal.notify
+import org.w3c.dom.Text
 import xyz.v.gaarb.R
+import xyz.v.gaarb.models.UserViewModel
 import xyz.v.gaarb.ui.fragments.ModalFragment
 import java.text.SimpleDateFormat
 import java.util.*
@@ -32,49 +46,34 @@ class SummaryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_summary)
-        val kgTV = findViewById<TextView>(R.id.wtTV)
-        val msTV = findViewById<TextView>(R.id.msTV)
-        val addTV:TextView = findViewById(R.id.addTV)
         val phnTV:TextView = findViewById(R.id.phnTV)
-        val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
-        var orderNo:Int = 0
         val langBottomSheet:RelativeLayout = findViewById(R.id.lang_rl)
-        val orDb = Firebase.firestore
         val rg = findViewById<RadioGroup>(R.id.rg)
         val regTV = findViewById<TextView>(R.id.regTV)
         val noET = findViewById<EditText>(R.id.noET)
-        var kg:String = ""
-        var ms:String = ""
-        var addre:String = ""
-        var landmark:String? = ""
-        var phnNo:String = ""
         val btmSht = BottomSheetBehavior.from(langBottomSheet)
         val link:MaterialButton = findViewById(R.id.link)
         val cnfBtn:MaterialButton = findViewById(R.id.cnfrmBtn)
         val cnclBtn:MaterialButton = findViewById(R.id.cnclBtn)
         val modalFragment:ModalFragment = ModalFragment()
         val ENTER_UPI = "Enter your UPI address"
-        val user: MutableMap<String, Any> = HashMap()
              getDetails()
 
         rg.setOnCheckedChangeListener { group, checkedId ->
             val radio = group.findViewById<RadioButton>(checkedId)
-            val ENTER_NUMBER = "Enter your registered  ${radio.text} number"
             noET.setText("")
-            if(radio.text.toString() == "UPI"){
+            if(radio.text.toString() == "Upi"){
                 regTV.text = ENTER_UPI
                 noET.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
-            }else{
-                regTV.text = ENTER_NUMBER
-                noET.inputType = InputType.TYPE_CLASS_PHONE
+                btmSht.state = BottomSheetBehavior.STATE_EXPANDED
+                cnclBtn.visibility= View.GONE
+                cnfBtn.visibility= View.GONE
             }
-            btmSht.state = BottomSheetBehavior.STATE_EXPANDED
-            cnclBtn.visibility= View.GONE
-            cnfBtn.visibility= View.GONE
         }
 
         link.setOnClickListener {
             btmSht.state = BottomSheetBehavior.STATE_COLLAPSED
+            Toast.makeText(this,"Upi linked to profile",Toast.LENGTH_SHORT).show()
         }
         phnTV.setOnClickListener {
             modalFragment.show(supportFragmentManager, modalFragment.tag)
@@ -110,24 +109,25 @@ class SummaryActivity : AppCompatActivity() {
 
 
         Log.d("TAG", "getDetails: ")
-        val simpleDateFormat:SimpleDateFormat = SimpleDateFormat("dd.MM.yyyy 'at' hh:mm")
+        val simpleDateFormat = SimpleDateFormat("dd.MM.yyyy 'at' hh:mm")
+        val sdf = SimpleDateFormat("dd/MM/yyyy")
+        val odate = sdf.format(Date())
         val idformat = SimpleDateFormat("yyyyddMMhh")
         val id = idformat.format(Date())
         val curDT:String  = simpleDateFormat.format(Date())
         val user: MutableMap<String, Any> = HashMap()
         val kgTV = findViewById<TextView>(R.id.wtTV)
-        val msTV = findViewById<TextView>(R.id.msTV)
         val addTV:TextView = findViewById(R.id.addTV)
         val phnTV:TextView = findViewById(R.id.phnTV)
+        val amtTV:TextView = findViewById(R.id.amtTV)
+        val amtTV1:TextView = findViewById(R.id.amtTV1)
+        val nameTV:TextView = findViewById(R.id.nameTV)
+        val dateTV:TextView = findViewById(R.id.dateTV)
+        dateTV.text = odate
         val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
         var orderNo:Int? = null
-        val langBottomSheet:RelativeLayout = findViewById(R.id.lang_rl)
         val orDb = Firebase.firestore
-        val rg = findViewById<RadioGroup>(R.id.rg)
-        val regTV = findViewById<TextView>(R.id.regTV)
-        val noET = findViewById<EditText>(R.id.noET)
-
-
+        var amount:String = ""
 
 
         orDb.collection("order").document("2020").get()
@@ -139,6 +139,7 @@ class SummaryActivity : AppCompatActivity() {
 
                     }
 
+                    @SuppressLint("SetTextI18n")
                     override fun onDataChange(p0: DataSnapshot) {
                         val add = p0.child("location").value.toString()
                         val landmrk = p0.child("landmark").value.toString()
@@ -148,11 +149,18 @@ class SummaryActivity : AppCompatActivity() {
                         val meas = p0.child("orders").child((orderNo).toString())
                             .child("measure").value.toString()
                         val name = p0.child("name").value.toString()
-
+                        nameTV.text = name
                         addTV.text = "$landmrk , $add"
-                        phnTV.text = phone
-                        kgTV.text = weight
-                        msTV.text = meas
+                        phnTV.text ="+91 $phone"
+                        kgTV.text = "$weight $meas"
+                        if (meas == "gms"){
+                            amount = ((weight.toFloat()/1000)*2).toString()
+                        }else{
+                            amount = (weight.toFloat()*2).toString()
+                        }
+                        amtTV.text = "\u20B9$amount"
+                        amtTV1.text = "\u20B9$amount"
+
                         user["name"] = name
                         user["Address"] = add
                         user["landmark"] = landmrk
@@ -160,7 +168,8 @@ class SummaryActivity : AppCompatActivity() {
                         user["weight"] = "$weight $meas"
                         user["dateTime"] =  curDT
                         user["id"] = "$id$orderNo"
-                        user["status"] = "confirmed"
+                        user["status"] = "Confirmed"
+                        user["amount"] = amount
                         initButtons(orderNo,uid,user)
 
                         /*orDb.collection("user").document(uid).collection("orders")
@@ -192,7 +201,7 @@ class SummaryActivity : AppCompatActivity() {
             bundle.putString("dateTime", user["dateTime"] as String?)
         }
         cnfBtn.setOnClickListener {
-
+             notifyAdmin(orderNo.toString(),user["name"].toString())
             orDb.collection("user").document(uid).collection("orders")
                 .document(orderNo.toString()).set(user)
             orDb.collection("all").document(orderNo.toString()).set(user)
@@ -212,5 +221,34 @@ class SummaryActivity : AppCompatActivity() {
             )
             finishAfterTransition()
         }
+    }
+
+    private fun notifyAdmin(ordr:String, name :String) {
+
+          FirebaseMessaging.getInstance().subscribeToTopic(ordr)
+            CoroutineScope(Dispatchers.IO).launch {
+
+                val (ignoredRequest, ignoredResponse, result) = Fuel.post("https://fcm.googleapis.com/fcm/send")
+                    .header("Authorization" to "key=AAAAhrwxqtk:APA91bGY5yMA28eZ3go5wqtseuCwEjsIKW_bLrS7xlDxtF4U2ZlMOw-v1h06KlacPmqqDSy0MIxqu_trSidwhb7FnPX3OKXVb0vM0F-S4SkAvdplwUWC9OiBuKEnCKH5c4_wCOZMChIK")
+                    .header(Headers.CONTENT_TYPE to "application/json")
+                    .jsonBody("{\n" +
+                            "  \"to\":\n" +
+                            "  \"/topics/admin\"\n" +
+                            ",\n" +
+                            "  \"data\": {\n" +
+                            "    \"extra_information\": \"This is some extra information\"\n" +
+                            "  },\n" +
+                            "  \"notification\": {\n" +
+                            "    \"title\": \"NEW ORDER! ACTION REQUIRED\",\n" +
+                            "    \"text\": \"$name with orderno $ordr\",\n" +
+                            "    \"click_action\": \"SOMEACTIVITY\"\n" +
+                            "  }\n" +
+                            "}")
+                    .responseString()
+
+                println(result.toString())
+
+
+            }
     }
 }
