@@ -12,7 +12,115 @@
      android:layout_centerHorizontal="true"
      android:layout_marginTop="20dp"
      app:lottie_autoPlay="true"
+     android:id="@+id/bin_anim"
      app:lottie_url="https://assets5.lottiefiles.com/packages/lf20_Mt38fp.json"
      app:lottie_loop="true"/>
+
+
+ <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_below="@id/bin_anim"
+     android:id="@+id/h1"
+     android:text="Buy garbage materials from Gaarb."
+     android:textSize="25sp"
+     android:layout_marginTop="20dp"
+     android:fontFamily="@font/questrial"
+     android:layout_marginHorizontal="20dp"
+     />
+
+ <LinearLayout
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_below="@id/h1"
+     android:layout_marginTop="30dp"
+     android:id="@+id/ll11"
+     android:layout_centerHorizontal="true"
+  android:orientation="horizontal">
+  <com.google.android.material.card.MaterialCardView
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      app:cardCornerRadius="10dp"
+      android:backgroundTint="#FF9E80">
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/paper_stack"
+        app:tint="#F3340F"
+     android:layout_centerInParent="true"/>
+   </RelativeLayout>
+  </com.google.android.material.card.MaterialCardView>
+  <com.google.android.material.card.MaterialCardView
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:layout_marginStart="60dp"
+      app:cardCornerRadius="10dp"
+      android:backgroundTint="#FF9E80">
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/bottle"
+        app:tint="#F3340F"
+        android:layout_centerInParent="true"/>
+   </RelativeLayout>
+  </com.google.android.material.card.MaterialCardView>
+ </LinearLayout>
+
+ <LinearLayout
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_below="@id/ll11"
+     android:layout_marginTop="30dp"
+     android:layout_centerHorizontal="true"
+     android:orientation="horizontal">
+  <com.google.android.material.card.MaterialCardView
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      app:cardCornerRadius="10dp"
+      android:backgroundTint="#FF9E80">
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/metal"
+        app:tint="#F3340F"
+        android:layout_centerInParent="true"/>
+   </RelativeLayout>
+  </com.google.android.material.card.MaterialCardView>
+  <com.google.android.material.card.MaterialCardView
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:layout_marginStart="60dp"
+      app:cardCornerRadius="10dp"
+      android:backgroundTint="#FF9E80">
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/plastic"
+        app:tint="@color/orange"
+        android:layout_centerInParent="true"/>
+   </RelativeLayout>
+  </com.google.android.material.card.MaterialCardView>
+ </LinearLayout>
+ <com.google.android.material.button.MaterialButton
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+  android:backgroundTint="@color/orange"
+     android:text="Buy Now"
+  android:layout_marginHorizontal="20dp"
+  app:cornerRadius="20dp"
+  android:layout_alignParentBottom="true"
+  android:layout_marginBottom="20dp"/>
 
 </RelativeLayout>

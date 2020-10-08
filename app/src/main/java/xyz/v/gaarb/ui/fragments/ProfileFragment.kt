@@ -25,6 +25,7 @@ import xyz.v.gaarb.objects.Settings
 import xyz.v.gaarb.ui.activities.AdminActiviy
 import xyz.v.gaarb.ui.activities.BuyGarbageActivity
 import xyz.v.gaarb.ui.activities.OrdersActivity
+import xyz.v.gaarb.ui.activities.ReminderActivity
 import xyz.v.gaarb.ui.onboarding.LoginActivity
 
 
@@ -86,7 +87,7 @@ class ProfileFragment : Fragment() {
         newSet("My Orders",R.drawable.ic_baseline_list_alt_24) { startOrder() }
         newSet("Points System",R.drawable.nuevo_sol){ startOrder() }
         newSet("Buy Garbage",R.drawable.ic_baseline_monetization_on_24){ startBuyGarb() }
-        newSet("Set Reminder",R.drawable.bronze_2){ startOrder() }
+        newSet("Set Reminder",R.drawable.bronze_2){ startReminder() }
         newSet("Sign Out",R.drawable.ic_baseline_play_for_work_24){ signOut() }
         newSet("About",R.drawable.ic_baseline_access_alarm_24){ startOrder() }
         /////////////////////////////////
@@ -112,6 +113,10 @@ class ProfileFragment : Fragment() {
     }
     private fun startBuyGarb(){
         activity?.startActivity(Intent(activity,BuyGarbageActivity::class.java))
+        activity?.overridePendingTransition(R.anim.screen_slide_in_from_right,R.anim.screen_slide_out_to_left)
+    }
+    private fun startReminder(){
+        activity?.startActivity(Intent(activity,ReminderActivity::class.java))
         activity?.overridePendingTransition(R.anim.screen_slide_in_from_right,R.anim.screen_slide_out_to_left)
     }
 

@@ -3,6 +3,7 @@
     <color name="colorPrimary">#309975</color>
     <color name="colorPrimaryDark">#226B5E</color>
     <color name="colorAccent">#A8FFEF</color>
+
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="black_70">#B3000000</color>
@@ -10,4 +11,11 @@
     <color name="lightest_gray">#F1F1F1</color>
     <color name="light_green">#B9F6CA</color>
     <color name="order_bg">#E8EDE5</color>
+    <color name="orange">#F3340F</color>
+
+    <array name="grad">
+        <item>@color/colorPrimary</item>
+        <item>@color/colorPrimaryDark</item>
+    </array>
+
 </resources>

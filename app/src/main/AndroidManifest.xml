@@ -16,12 +16,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".ui.activities.BuyGarbageActivity"></activity>
+        <activity android:name=".ui.activities.ReminderActivity"></activity>
+        <activity android:name=".ui.activities.BuyGarbageActivity" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_stat_name" />
-
+        <receiver
+            android:name=".ui.activities.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="" />
         <activity android:name=".ui.activities.AdminActiviy" />
         <activity android:name=".ui.activities.OrdersActivity" />
         <activity android:name=".ui.activities.ConfirmedActivity" />

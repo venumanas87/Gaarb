@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.ReminderActivity">
+
+ <ScrollView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Remind Me Every"
+             android:fontFamily="@font/questrial"
+             android:textSize="25sp"
+             android:layout_margin="20dp"
+             android:id="@+id/h1"/>
+
+         <com.github.stefanodp91.android.circularseekbar.CircularSeekBar
+             android:layout_width="250dp"
+             android:layout_height="250dp"
+             android:id="@+id/seekbar"
+             app:cs_text_progress="true"
+             app:cs_color_list="@array/grad"
+             android:layout_centerHorizontal="true"
+             app:cs_text_size="20sp"
+             android:layout_below="@id/h1"
+             app:cs_text_color="@color/colorPrimaryDark"
+             app:cs_arcRadius="100dp"/>
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/days"
+             android:layout_below="@id/seekbar"
+             android:id="@+id/daysll"
+             android:textColor="@color/black"
+             android:layout_centerHorizontal="true"
+             android:textSize="20sp"/>
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/at"
+             android:layout_below="@id/daysll"
+             android:layout_marginTop="20dp"
+             android:textSize="20sp"
+             android:layout_centerHorizontal="true"
+             android:id="@+id/atll"/>
+
+
+            <RelativeLayout
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:layout_below="@id/atll"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/card"
+                android:layout_marginHorizontal="20dp"
+                android:elevation="2dp"
+                android:id="@+id/dtll"
+                android:layout_marginVertical="10dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_00"
+                    android:textSize="40sp"
+                    android:id="@+id/hours"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text=":"
+                        android:textSize="40sp"
+                        android:layout_marginHorizontal="10dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_00"
+                        android:textSize="40sp"
+                        android:id="@+id/mins"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+         <com.google.android.material.button.MaterialButton
+             android:layout_width="300dp"
+             android:layout_height="70dp"
+             android:text="Set Reminder"
+             android:layout_below="@id/dtll"
+             android:id="@+id/set_rem"
+             android:layout_centerHorizontal="true"
+             android:layout_marginVertical="30dp"/>
+
+
+
+
+
+
+     </RelativeLayout>
+ </ScrollView>
+
+
+</RelativeLayout>

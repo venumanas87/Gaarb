@@ -40,4 +40,7 @@
     <string name="pay_amount">Pay Amount</string>
     <string name="allocate_collector">Allocate Collector</string>
     <string name="your_total_income">Your total income</string>
+    <string name="days">days</string>
+    <string name="at">at</string>
+    <string name="_00">00</string>
 </resources>
