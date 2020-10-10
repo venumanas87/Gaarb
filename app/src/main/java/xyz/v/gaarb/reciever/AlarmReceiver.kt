@@ -1,21 +1,19 @@
-package xyz.v.gaarb.ui.activities
+package xyz.v.gaarb.reciever
 
-import android.app.Notification
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.app.Service
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.os.IBinder
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import xyz.v.gaarb.R
+import xyz.v.gaarb.ui.activities.OrdersActivity
 
 class AlarmReceiver:BroadcastReceiver() {
     override fun onReceive(p0: Context?, p1: Intent?) {
-        Toast.makeText(p0,"This is alarm",Toast.LENGTH_SHORT).show()
-        sendLocalNotification("Garbage Reminder","Sell your garbage today",p0)
+        //Toast.makeText(p0,"This is alarm",Toast.LENGTH_SHORT).show()
+        sendLocalNotification("Garbage Reminder !!!","Sell your garbage today",p0)
     }
 
     private fun sendLocalNotification(notificationTitle: String?, notificationBody: String?,context:Context?) {

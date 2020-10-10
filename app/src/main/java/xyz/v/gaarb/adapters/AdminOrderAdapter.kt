@@ -49,7 +49,7 @@ class AdminOrderAdapter(private val ordrList:List<Orders>):RecyclerView.Adapter<
         val allocate = holder.addTV.context.getString(R.string.allocate_collector)
         val payamount = holder.addTV.context.getString(R.string.pay_amount)
         holder.idTV.text = "#${obj.id}"
-        holder.addTV.text = obj.Address
+        holder.addTV.text = obj.address
         holder.dateTV.text = obj.dateTime
         holder.amtTV.text = obj.amount
         holder.wtTV.text = obj.weight
@@ -100,7 +100,7 @@ class AdminOrderAdapter(private val ordrList:List<Orders>):RecyclerView.Adapter<
                                         "  },\n" +
                                         "  \"notification\": {\n" +
                                         "    \"title\": \"Collector Alloted\",\n" +
-                                        "    \"text\": \"Mr RAjesh is on the way to pickup your order\",\n" +
+                                        "    \"text\": \"Rajesh is on the way to pickup your order\",\n" +
                                         "    \"click_action\": \"SOMEACTIVITY\"\n" +
                                         "  }\n" +
                                         "}")

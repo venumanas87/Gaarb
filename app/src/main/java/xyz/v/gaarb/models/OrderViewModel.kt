@@ -19,6 +19,7 @@ class OrderViewModel:ViewModel() {
     private val dbRef = firestore.collection("user").document(uid).collection("orders")
     private val db = FirebaseDatabase.getInstance().getReference("users")
     var c = 0
+    var w = 0
     fun getOrderList():LiveData<List<Orders>>{
 
         dbRef.addSnapshotListener{value, e ->
@@ -29,6 +30,7 @@ class OrderViewModel:ViewModel() {
             val ol = ArrayList<Orders>()
             for (doc in value!!){
                 c++
+
                 val order = doc.toObject(Orders::class.java)
                 ol.add(order)
             }
@@ -44,6 +46,9 @@ class OrderViewModel:ViewModel() {
         db.child(uid).child("gSold").setValue(c.toString())
     }
 
+    fun updateTotalWeight(w:Int){
+
+    }
 
 
 }

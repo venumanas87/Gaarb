@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -27,15 +28,23 @@ class SignupActivity : AppCompatActivity() {
         setContentView(R.layout.activity_signup)
         mAuth = FirebaseAuth.getInstance()
         signupBtn = findViewById(R.id.signup)
+        signinBtn = findViewById(R.id.signin)
         emailTV = findViewById(R.id.emailet)
         nameTV = findViewById(R.id.nameet)
         passwordTV = findViewById(R.id.passet)
         progressBar = findViewById(R.id.progress)
+        val back:ImageView = findViewById(R.id.back)
+
+        back.setOnClickListener {
+            onBackPressed()
+        }
         signupBtn?.setOnClickListener {
             RegisterUser()
         }
         signinBtn?.setOnClickListener {
+
             startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
     }
 
@@ -60,6 +69,9 @@ class SignupActivity : AppCompatActivity() {
                         dbref.child(simplEmail).child("level").setValue("Bronze 2")
                         dbref.child(simplEmail).child("goalsC").setValue(0)
                         dbref.child(simplEmail).child("gSold").setValue(0)
+                        dbref.child(simplEmail).child("tw").setValue(0)
+                        dbref.child(simplEmail).child("vm").setValue(0)
+                        dbref.child(simplEmail).child("vl").setValue(0)
                         Toast.makeText(
                             applicationContext,
                             "Registration successful!",

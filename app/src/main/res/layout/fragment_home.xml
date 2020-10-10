@@ -80,46 +80,6 @@
                 android:layout_marginVertical="10dp"
                 android:id="@+id/recyclerView"
                 android:layout_below="@id/yg"/>
-<!--
-
-         <com.google.android.material.card.MaterialCardView
-             android:layout_width="match_parent"
-             android:layout_height="250dp"
-             android:layout_marginTop="20dp"
-             android:layout_marginHorizontal="20dp"
-             android:backgroundTint="@color/lightest_gray"
-             app:cardCornerRadius="20dp"
-             app:cardElevation="10dp">
-             <RelativeLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent">
-                 <TextView
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:textColor="@color/black_70"
-                     android:id="@+id/gtxt"
-                     android:text="Your goals"
-                     android:fontFamily="@font/questrial"
-                     android:layout_margin="20dp"
-                     android:textSize="18sp"/>
-                 <LinearLayout
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_below="@id/gtxt"
-                     android:layout_marginHorizontal="20dp"
-                     android:orientation="vertical">
-                     <TextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:text="Sell your garbage 1 time"
-                         android:fontFamily="@font/questrial"
-                         android:textSize="19sp"
-                 </LinearLayout>
-
-             </RelativeLayout>
-
-         </com.google.android.material.card.MaterialCardView>
--->
 
 
         <LinearLayout
@@ -129,14 +89,15 @@
             android:orientation="horizontal">
             <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:id="@+id/sell_garb"
                 app:cardCornerRadius="100dp"
+                android:elevation="10dp"
                 android:layout_weight="1"
                 app:rippleColor="@color/white"
-                app:cornerRadius="100dp"
+                app:cornerRadius="70dp"
                 android:layout_marginBottom="30dp"
-                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimaryDark"
                 android:layout_marginHorizontal="70dp"
                 android:text="@string/sell_garbage"
                 >

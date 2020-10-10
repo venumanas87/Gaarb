@@ -162,7 +162,7 @@ class SummaryActivity : AppCompatActivity() {
                         amtTV1.text = "\u20B9$amount"
 
                         user["name"] = name
-                        user["Address"] = add
+                        user["address"] = add
                         user["landmark"] = landmrk
                         user["phone"] = phone
                         user["weight"] = "$weight $meas"
@@ -215,10 +215,7 @@ class SummaryActivity : AppCompatActivity() {
         }
         cnclBtn.setOnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
-            overridePendingTransition(
-                R.anim.screen_slide_out_to_left,
-                R.anim.screen_slide_in_from_right
-            )
+            overridePendingTransition(R.anim.scree_slide_in_from_left,R.anim.screen_slide_out_to_right)
             finishAfterTransition()
         }
     }

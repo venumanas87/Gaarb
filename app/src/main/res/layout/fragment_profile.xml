@@ -39,6 +39,7 @@
          android:layout_alignParentEnd="true"
          android:outlineProvider="none"
          android:backgroundTint="#B9F6CA"
+         app:rippleColor="@color/black_70"
          android:id="@+id/editCard"
          app:cardCornerRadius="100dp"
          >
@@ -214,4 +215,13 @@
         android:layout_marginEnd="30dp"
         />
 </RelativeLayout>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/bottom_sheet_payment"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 </RelativeLayout>

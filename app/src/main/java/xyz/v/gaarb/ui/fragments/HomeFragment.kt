@@ -10,6 +10,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
@@ -18,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.jaeger.library.StatusBarUtil
 import xyz.v.gaarb.R
 import xyz.v.gaarb.adapters.GoalAdapter
+import xyz.v.gaarb.models.GoalsViewModel
 import xyz.v.gaarb.models.UserViewModel
 import xyz.v.gaarb.objects.Goal
 import xyz.v.gaarb.ui.activities.SellGarbActivity
@@ -34,19 +36,11 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val rootView:View = inflater.inflate(R.layout.fragment_home, container, false)
-        val headTV:TextView = rootView.findViewById(R.id.helo)
-        val apTV:TextView = rootView.findViewById(R.id.ap)
-        val db = FirebaseDatabase.getInstance().getReference("users")
-        val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
-        val progressBar:ProgressBar = rootView.findViewById(R.id.progress)
-        StatusBarUtil.setTransparent(activity)
-        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        viewModel!!.getUser().observe(this, Observer {
-                headTV.text = "Hi, ${it.name.split(" ")[0]}!"
-                apTV.text = it.ap
-                progressBar.visibility = View.GONE
-        }
-        )
+
+
+
+
+
         // Inflate the layout for this fragment
         return rootView
     }
@@ -55,19 +49,43 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val sellBtn = view.findViewById<MaterialButton>(R.id.sell_garb)
 
+
+
         ///////////Recyclerr view//////////
         val recyclerView:RecyclerView? = view.findViewById(R.id.recyclerView)
         val layoutManager:RecyclerView.LayoutManager = LinearLayoutManager(view.context,RecyclerView.HORIZONTAL,false)
         recyclerView?.layoutManager = layoutManager
-        recyclerView?.adapter = GoalAdapter(goalList)
+
+        val headTV:TextView = view.findViewById(R.id.helo)
+        val apTV:TextView = view.findViewById(R.id.ap)
+        val progressBar:ProgressBar = view.findViewById(R.id.progress)
+        val vm = ViewModelProvider(this).get(GoalsViewModel::class.java)
+        recyclerView?.adapter = goalAdapter
+        StatusBarUtil.setTransparent(activity)
+        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        viewModel!!.calWeight()
+        viewModel!!.getUser().observe(this, Observer { it ->
+            headTV.text = "Hi, ${it.name.split(" ")[0]}!"
+            apTV.text = it.ap
+            progressBar.visibility = View.GONE
+            vm.getGoals(it.level).observe(this, Observer {
+                newGoal(it.g1, it.v1)
+                newGoal(it.g2, it.v2)
+                newGoal(it.g3, it.v3)
+
+            })
+        })
+
 
         /////////////////////////////////
+
+
+
+
+
         sellBtn.setOnClickListener {
             startActivity(Intent(activity, SellGarbActivity::class.java))
         }
-        newGoal("Sell your garbage 1 time",1)
-        newGoal("Plant a tree in your surrounding",1)
-        newGoal("Sell 5 bottles of plastic with your garbage",5)
     }
 
     private fun newGoal(goalQ:String,tasks:Int){

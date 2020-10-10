@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.button.MaterialButton
@@ -56,6 +57,8 @@ class ConfirmedActivity : AppCompatActivity() {
         val name = b?.getString("name")
         val dt = b?.getString("dateTime")
         val orderNoo = b?.getInt("orderNO").toString()
+
+
         nameTV.text = "Congrats $name!"
         oidTV.text = "Order Id - #$id"
         dateTV.text = "Request Placed On - $dt"
@@ -64,6 +67,7 @@ class ConfirmedActivity : AppCompatActivity() {
             orDb.collection("user").document(uid).collection("orders")
                 .document(orderNoo.toString()).update("status","Cancelled")
             orDb.collection("all").document(orderNoo).update("status","Cancelled")
+            Toast.makeText(this,"Your pickup has been Cancelled",Toast.LENGTH_SHORT).show()
         }
         ordrHisBtn.setOnClickListener {
             startActivity(Intent(this,OrdersActivity::class.java))

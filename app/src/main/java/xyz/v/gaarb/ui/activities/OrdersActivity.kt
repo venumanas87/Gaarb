@@ -2,6 +2,7 @@ package xyz.v.gaarb.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -19,13 +20,15 @@ class OrdersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_orders)
-        StatusBarUtil.setTransparent(this)
         val TV = findViewById<TextView>(R.id.text)
         val recyclerView:RecyclerView = findViewById(R.id.recyclerView)
         val layoutManager:RecyclerView.LayoutManager = LinearLayoutManager(this,RecyclerView.VERTICAL,true)
         recyclerView.layoutManager = layoutManager
         val orderList:MutableList<Orders> = ArrayList()
         val ordrviewModel = ViewModelProvider(this).get(OrderViewModel::class.java)
+        val back: ImageView = findViewById(R.id.back)
+
+
         ordrviewModel.getOrderList().observe(this, Observer {
 
             for (doc in it!!){
@@ -36,6 +39,10 @@ class OrdersActivity : AppCompatActivity() {
             recyclerView.scrollToPosition(it.lastIndex)
         })
 
+
+        back.setOnClickListener {
+            onBackPressed()
+        }
 
 
     }

@@ -6,35 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".ui.onboarding.LoginActivity">
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:id="@+id/tool"
-    >
-    <ImageView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/tool"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="2dp"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="10dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:id="@+id/back"
+            app:tint="@color/white"
+            android:contentDescription="@string/back" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Sign In"
+            android:textColor="@color/white"
+            android:fontFamily="@font/questrial"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <ProgressBar
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_arrow_back_24"
-        android:layout_centerVertical="true"
-        android:layout_marginHorizontal="10dp"
-        android:contentDescription="@string/back" />
-</RelativeLayout>
+        android:layout_centerHorizontal="true"
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"
+        android:indeterminateTint="@color/black"
+        android:layout_below="@id/tool"
+        android:indeterminateOnly="true"
+        android:layout_marginTop="-7dp"
+        android:visibility="invisible"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tool">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rr1"
+        android:layout_marginTop="20dp">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/welcome_back"
-        android:textColor="@color/black"
         android:textSize="25sp"
+        android:id="@+id/h"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/tool"
         android:layout_marginHorizontal="20dp"
         android:fontFamily="@font/questrial"/>
 
-<RelativeLayout
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/wrapper"
-    android:layout_centerVertical="true"
+    android:orientation="vertical"
+     android:layout_below="@id/h"
+    android:layout_marginTop="90dp"
     android:layout_marginHorizontal="20dp"
     >
 
@@ -44,6 +83,7 @@
       android:layout_height="wrap_content"
       android:inputType="textEmailAddress"
       android:hint="@string/email"
+      android:background="@drawable/search_bar"
       android:id="@+id/emailet"
       android:autofillHints="" />
 
@@ -52,20 +92,17 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:hint="@string/password"
+        android:background="@drawable/search_bar"
         android:layout_marginTop="40dp"
         android:id="@+id/passet"
-        android:layout_below="@id/emailet"
         android:autofillHints="" />
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:backgroundTint="@color/colorPrimary"
         app:cornerRadius="5dp"
         android:text="@string/sign_in"
-        android:layout_below="@id/passet"
-        app:strokeColor="@color/white"
-        app:strokeWidth="1dp"
         android:layout_marginTop="60dp"
         android:id="@+id/signin"
         app:rippleColor="@color/black"
@@ -73,12 +110,12 @@
         />
 
 
-</RelativeLayout>
+</LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="or"
-        android:textColor="#CC000000"
+        android:text="@string/or"
         android:textSize="30sp"
         android:fontFamily="@font/questrial"
         android:layout_below="@id/wrapper"
@@ -88,7 +125,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:backgroundTint="@color/white"
         app:cornerRadius="5dp"
         android:layout_below="@id/or"
@@ -102,13 +139,7 @@
         app:rippleColor="@color/black"
         android:textColor="@color/colorPrimary"
         />
-    <ProgressBar
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/progress"
-        android:visibility="gone"
-        android:layout_marginBottom="10dp"/>
 
+    </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

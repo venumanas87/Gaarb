@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.android.material.button.MaterialButton
@@ -31,9 +32,18 @@ class LoginActivity : AppCompatActivity() {
         emailTV = findViewById(R.id.emailet)
         passwordTV = findViewById(R.id.passet)
         progressBar = findViewById(R.id.progress)
+        val back: ImageView = findViewById(R.id.back)
 
+        back.setOnClickListener {
+            onBackPressed()
+        }
         signinBtn?.setOnClickListener {
             loginUser()
+        }
+
+        signupBtn?.setOnClickListener {
+            startActivity(Intent(this,SignupActivity::class.java))
+            finish()
         }
     }
 

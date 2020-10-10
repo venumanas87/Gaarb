@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlinx-serialization'
+apply plugin: 'com.google.firebase.crashlytics'
 android {
 
     compileOptions {
@@ -22,7 +23,13 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
+            useProguard false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -40,7 +47,7 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'com.google.firebase:firebase-analytics:17.5.0'
+    implementation 'com.google.firebase:firebase-analytics:17.6.0'
     implementation 'com.google.firebase:firebase-auth:19.4.0'
     implementation 'com.google.android.gms:play-services-auth:18.1.0'
     implementation 'com.google.android.material:material:1.2.1'
@@ -49,7 +56,7 @@ dependencies {
     implementation 'com.google.android.libraries.places:places:2.4.0'
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
     implementation 'com.github.arcadefire:nice-spinner:1.4.4'
-    implementation 'com.google.firebase:firebase-firestore-ktx:21.7.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:21.7.1'
     implementation "com.airbnb.android:lottie:3.4.1"
     implementation 'com.akexorcist:round-corner-progress-bar:2.1.1'
     implementation 'com.mikhaellopez:circularimageview:4.2.0'
@@ -60,4 +67,7 @@ dependencies {
     implementation 'com.github.kittinunf.fuel:fuel:2.3.0'
     implementation 'com.github.kittinunf.fuel:fuel-android:2.3.0'
     implementation 'com.github.stefanodp91.android:circularseekbar:0.2'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation platform('com.google.firebase:firebase-bom:25.12.0')
+
 }

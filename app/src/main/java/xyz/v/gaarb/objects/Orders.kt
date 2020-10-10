@@ -1,7 +1,8 @@
 package xyz.v.gaarb.objects
 
-import kotlinx.serialization.Serializable
+import androidx.annotation.Keep
 
-@Serializable
-data class Orders(var Address:String ="",var dateTime:String="",var id:String="",var landmark:String="",var name:String="",var phone:String="", var weight:String="",var status:String = "",var amount:String="")
+
+@Keep
+data class Orders(var address:String ="",var dateTime:String="",var id:String="",var landmark:String="",var name:String="",var phone:String="", var weight:String="",var status:String = "",var amount:String="")
 

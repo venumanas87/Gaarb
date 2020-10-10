@@ -39,9 +39,9 @@ class OrderAdapter(private val ordrList:List<Orders>):RecyclerView.Adapter<Order
     override fun onBindViewHolder(holder: mvh, position: Int) {
        val obj = ordrList[position]
         holder.idTV.text = "#${obj.id}"
-        holder.addTV.text = obj.Address
+        holder.addTV.text = obj.address
         holder.dateTV.text = obj.dateTime
-        holder.amtTV.text = obj.amount
+        holder.amtTV.text = "\u20B9${obj.amount}"
         holder.wtTV.text = obj.weight
         holder.statusTV.text = obj.status
         when(obj.status){
@@ -62,6 +62,8 @@ class OrderAdapter(private val ordrList:List<Orders>):RecyclerView.Adapter<Order
     override fun getItemCount(): Int {
        return ordrList.size
     }
+
+
     override fun getItemViewType(position: Int): Int {
         return position
     }

@@ -16,26 +16,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".ui.activities.ReminderActivity"></activity>
+        <activity android:name=".ui.activities.ReminderActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".ui.activities.BuyGarbageActivity" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_stat_name" />
         <receiver
-            android:name=".ui.activities.AlarmReceiver"
+            android:name=".reciever.AlarmReceiver"
             android:enabled="true"
             android:exported="true"
             android:permission="" />
-        <activity android:name=".ui.activities.AdminActiviy" />
-        <activity android:name=".ui.activities.OrdersActivity" />
-        <activity android:name=".ui.activities.ConfirmedActivity" />
-        <activity android:name=".ui.activities.SummaryActivity" />
-        <activity android:name=".ui.activities.SellGarbActivity" />
-        <activity android:name=".ui.activities.HomeActivity" />
-        <activity android:name=".ui.onboarding.SignupActivity" />
-        <activity android:name=".ui.onboarding.LoginActivity" />
-        <activity android:name=".ui.onboarding.MainActivity">
+        <activity android:name=".ui.activities.AdminActiviy" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activities.OrdersActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ui.activities.ConfirmedActivity" android:screenOrientation="portrait" />
+        <activity android:name=".ui.activities.SummaryActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activities.SellGarbActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activities.HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.onboarding.SignupActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.onboarding.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.onboarding.MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

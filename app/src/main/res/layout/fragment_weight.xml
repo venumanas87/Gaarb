@@ -55,7 +55,7 @@
         android:id="@+id/weight_slider"
         android:valueFrom="0"
         android:stepSize="1"
-        android:valueTo="1000"
+        android:valueTo="100"
         android:layout_below="@id/wtET"
         />
    </RelativeLayout>

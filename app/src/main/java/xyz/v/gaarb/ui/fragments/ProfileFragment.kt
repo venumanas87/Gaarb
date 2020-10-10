@@ -6,13 +6,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.card.MaterialCardView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessaging
 import org.w3c.dom.Text
@@ -46,6 +51,7 @@ class ProfileFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
         orderViewModel = ViewModelProvider(this).get(OrderViewModel::class.java)
         orderViewModel!!.getOrderList()
+
         val nameTV = rootView?.findViewById<TextView>(R.id.name)
         /////////////
         nameTV?.setOnClickListener {
@@ -87,14 +93,31 @@ class ProfileFragment : Fragment() {
         newSet("My Orders",R.drawable.ic_baseline_list_alt_24) { startOrder() }
         newSet("Points System",R.drawable.nuevo_sol){ startOrder() }
         newSet("Buy Garbage",R.drawable.ic_baseline_monetization_on_24){ startBuyGarb() }
-        newSet("Set Reminder",R.drawable.bronze_2){ startReminder() }
+        newSet("Set Reminder",R.drawable.ic_baseline_access_alarm_24){ startReminder() }
         newSet("Sign Out",R.drawable.ic_baseline_play_for_work_24){ signOut() }
         newSet("About",R.drawable.ic_baseline_access_alarm_24){ startOrder() }
         /////////////////////////////////
-    }
-    private fun returnTOMain() {
-        activity?.finish()
-        startActivity(Intent(activity, MainActivity::class.java))
+
+        val langBottomSheet:RelativeLayout = view.findViewById(R.id.lang_rl)
+        val noET = view.findViewById<EditText>(R.id.noET)
+        val btmSht = BottomSheetBehavior.from(langBottomSheet)
+        val link: MaterialButton = view.findViewById(R.id.link)
+        val edit:MaterialCardView = view.findViewById(R.id.editCard)
+        val regTV = view.findViewById<TextView>(R.id.regTV)
+        edit.setOnClickListener {
+            link.text = "Save"
+            regTV.text = "Enter your name"
+            btmSht.state = BottomSheetBehavior.STATE_EXPANDED
+
+        }
+
+        link.setOnClickListener {
+            btmSht.state = BottomSheetBehavior.STATE_COLLAPSED
+            Toast.makeText(view.context,"Saved",Toast.LENGTH_SHORT).show()
+        }
+
+
+
     }
     fun newSet(tit:String,image:Int,func:()->(Unit)){
         settings = Settings(image,tit) { func() }

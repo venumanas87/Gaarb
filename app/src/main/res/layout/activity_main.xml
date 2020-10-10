@@ -26,11 +26,12 @@
         android:text="Moving towards a cleaner nation"
         android:layout_margin="20dp"
         android:layout_below="@id/head"
+        android:fontFamily="@font/questrial"
         android:textColor="@color/white"
         android:textSize="20sp"/>
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:backgroundTint="@color/colorPrimary"
         app:cornerRadius="5dp"
         android:layout_marginHorizontal="20dp"
@@ -44,7 +45,7 @@
         />
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:backgroundTint="@color/white"
         app:cornerRadius="5dp"
         android:layout_alignParentBottom="true"
