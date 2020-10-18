@@ -37,6 +37,8 @@ class ReminderActivity : AppCompatActivity() {
         back.setOnClickListener {
             onBackPressed()
         }
+        hourTV.text = hour.toString()
+        minTV.text = minute.toString()
 
         seekbar.setOnRoundedSeekChangeListener(object : OnCircularSeekBarChangeListener {
             /**

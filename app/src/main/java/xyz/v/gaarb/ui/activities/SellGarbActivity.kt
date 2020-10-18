@@ -182,6 +182,7 @@ class SellGarbActivity : AppCompatActivity(), CoroutineScope {
             val addresses: List<Address> = geocoder.getFromLocation(lat, lon, 1) // Here 1 represent max location result to returned, by documents it recommended 1 to 5
             if(addresses.isNotEmpty()) {
                 dbref.child(uid).child("location").setValue(addresses[0].getAddressLine(0).toString())
+                dbref.child(uid).child("state").setValue(addresses[0].adminArea.toString())
             }else{
                 Log.d(TAG, "geo: NO adress")
             }

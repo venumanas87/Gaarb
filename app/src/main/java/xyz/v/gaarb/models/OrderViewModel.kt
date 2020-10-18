@@ -10,7 +10,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import xyz.v.gaarb.objects.Orders
-import xyz.v.gaarb.ui.activities.OrdersActivity
+
 
 class OrderViewModel:ViewModel() {
     private val orderList:MutableLiveData<List<Orders>> = MutableLiveData()

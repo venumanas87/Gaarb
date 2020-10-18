@@ -100,7 +100,7 @@ class AdminOrderAdapter(private val ordrList:List<Orders>):RecyclerView.Adapter<
                                         "  },\n" +
                                         "  \"notification\": {\n" +
                                         "    \"title\": \"Collector Alloted\",\n" +
-                                        "    \"text\": \"Rajesh is on the way to pickup your order\",\n" +
+                                        "    \"text\": \"Rajesh is on the way to pickup your garbage.\",\n" +
                                         "    \"click_action\": \"SOMEACTIVITY\"\n" +
                                         "  }\n" +
                                         "}")

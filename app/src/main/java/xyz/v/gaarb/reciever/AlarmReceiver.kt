@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import xyz.v.gaarb.R
 import xyz.v.gaarb.ui.activities.OrdersActivity
+import xyz.v.gaarb.ui.activities.SellGarbActivity
 
 class AlarmReceiver:BroadcastReceiver() {
     override fun onReceive(p0: Context?, p1: Intent?) {
@@ -17,12 +18,18 @@ class AlarmReceiver:BroadcastReceiver() {
     }
 
     private fun sendLocalNotification(notificationTitle: String?, notificationBody: String?,context:Context?) {
-        val intent = Intent(context, OrdersActivity::class.java)
+        val intent = Intent(context, SellGarbActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(
             context, 0, intent,
             PendingIntent.FLAG_ONE_SHOT
         )
+
+        val intent1 = Intent(context, SellGarbActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        val pendingIntent1 = PendingIntent.getActivity(
+            context, 0, intent,
+            PendingIntent.FLAG_ONE_SHOT)
         val notificationBuilder: NotificationCompat.Builder? = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationCompat.Builder(context!!,"1234")
                 .setAutoCancel(true) //Automatically delete the notification
@@ -30,6 +37,7 @@ class AlarmReceiver:BroadcastReceiver() {
                 .setContentIntent(pendingIntent)
                 .setContentTitle(notificationTitle)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(notificationBody))
+                .addAction(0,"Sell Now",pendingIntent1)
         } else {
             NotificationCompat.Builder(context)
                 .setAutoCancel(true) //Automatically delete the notification
@@ -37,6 +45,7 @@ class AlarmReceiver:BroadcastReceiver() {
                 .setContentIntent(pendingIntent)
                 .setContentTitle(notificationTitle)
                 .setContentText(notificationBody)
+
         }
         val notificationManager =
             context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager?

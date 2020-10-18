@@ -122,10 +122,11 @@
 
          <com.google.android.material.button.MaterialButton
              android:layout_width="300dp"
-             android:layout_height="70dp"
+             android:layout_height="60dp"
              android:text="Set Reminder"
              android:layout_below="@id/dtll"
              android:id="@+id/set_rem"
+             app:cornerRadius="10dp"
              android:layout_centerHorizontal="true"
              android:layout_marginVertical="50dp"/>
 

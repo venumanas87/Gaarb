@@ -65,6 +65,14 @@ class UserViewModel:ViewModel() {
         })
     }
 
+    fun updateName(name:String){
+        val db = FirebaseDatabase.getInstance().getReference("users")
+        val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
+
+        db.child(uid).child("name").setValue(name)
+    }
+
+
     fun calWeight() {
         val db = FirebaseDatabase.getInstance().getReference("users")
         val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()

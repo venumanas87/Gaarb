@@ -17,7 +17,7 @@
     <string name="please_confirm_your_location_nto_proceed">Please confirm your details to proceed</string>
     <string name="landmark">Landmark</string>
     <string name="address">Address</string>
-    <string name="please_choose_the_approx_weight_of_your_garbage">Please choose the approx. \nweight of your garbage</string>
+    <string name="please_choose_the_approx_weight_of_your_garbage">Please choose the approx. weight and type of your garbage</string>
     <string name="_91xxxxxxxxx">+91XXXXXXXXX</string>
     <string name="cont">continue</string>
     <string name="please_select_the_types_nof_garbage">Please select the types \nof garbage</string>
@@ -44,4 +44,27 @@
     <string name="at">at</string>
     <string name="_00">00</string>
     <string name="or">or</string>
+    <string name="cancel_pickup">cancel pickup</string>
+    <string name="pickup_history">pickup history</string>
+    <string name="ward">Ward</string>
+    <string name="order_collected_at">Order Collected at</string>
+    <string name="buy">Buy</string>
+    <string name="plastic">Plastic      (\u20b95/kg)</string>
+    <string name="paper">Paper         (\u20b912/kg)</string>
+    <string name="other">Other  (\u20b92/kg)</string>
+
+    <string-array name="wards">
+        <item>WARD 1</item>
+        <item>WARD 2 </item>
+        <item>WARD 3</item>
+        <item>WARD 4</item>
+        <item>WARD 5</item>
+        <item>WARD 6</item>
+        <item>WARD 7</item>
+        <item>WARD 8 </item>
+        <item>WARD 9</item>
+        <item>WARD 10</item>
+        <item>WARD 11</item>
+        <item>WARD 12</item>
+    </string-array>
 </resources>

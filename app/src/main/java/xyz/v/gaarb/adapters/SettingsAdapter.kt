@@ -31,7 +31,7 @@ class SettingsAdapter(private val listS:List<Settings>): RecyclerView.Adapter<Se
         val act:Activity = holder.IV.context as Activity
         holder.IV.setImageResource(obj.image)
         holder.TV.text = obj.title
-        if (obj.title == "Durg"){
+        if (obj.title == "Set Reminder"){
             holder.line.visibility = View.VISIBLE
         }
         holder.pl.setOnClickListener {

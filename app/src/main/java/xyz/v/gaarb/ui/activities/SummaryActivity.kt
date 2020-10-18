@@ -127,7 +127,6 @@ class SummaryActivity : AppCompatActivity() {
         val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
         var orderNo:Int? = null
         val orDb = Firebase.firestore
-        var amount:String = ""
 
 
         orDb.collection("order").document("2020").get()
@@ -149,17 +148,16 @@ class SummaryActivity : AppCompatActivity() {
                         val meas = p0.child("orders").child((orderNo).toString())
                             .child("measure").value.toString()
                         val name = p0.child("name").value.toString()
+                        val type = p0.child("orders").child((orderNo).toString())
+                            .child("types").value.toString()
+                        val amount =  p0.child("orders").child((orderNo).toString())
+                            .child("amount").value.toString()
                         nameTV.text = name
                         addTV.text = "$landmrk , $add"
                         phnTV.text ="+91 $phone"
                         kgTV.text = "$weight $meas"
-                        if (meas == "gms"){
-                            amount = ((weight.toFloat()/1000)*2).toString()
-                        }else{
-                            amount = (weight.toFloat()*2).toString()
-                        }
-                        amtTV.text = "\u20B9$amount"
-                        amtTV1.text = "\u20B9$amount"
+                        amtTV.text = "\u20B9$amount.00"
+                        amtTV1.text = "\u20B9$amount.00"
 
                         user["name"] = name
                         user["address"] = add
@@ -170,6 +168,7 @@ class SummaryActivity : AppCompatActivity() {
                         user["id"] = "$id$orderNo"
                         user["status"] = "Confirmed"
                         user["amount"] = amount
+                        user["type"] = type
                         initButtons(orderNo,uid,user)
 
                         /*orDb.collection("user").document(uid).collection("orders")

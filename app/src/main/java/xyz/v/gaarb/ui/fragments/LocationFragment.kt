@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
+import android.widget.*
 import com.google.android.material.transition.MaterialSharedAxis
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -39,6 +39,31 @@ class LocationFragment : Fragment() {
         val landET = view.findViewById<EditText>(R.id.landmark_et)
         val phnET = view.findViewById<EditText>(R.id.phone_et)
         val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
+        val wards  = resources.getStringArray(R.array.wards)
+        val spinner:Spinner = view.findViewById(R.id.spinner)
+        val dbins = FirebaseDatabase.getInstance()
+        val dbref = dbins.getReference("users")
+        if (spinner!=null){
+            val adapter = ArrayAdapter(context!!,R.layout.support_simple_spinner_dropdown_item,wards)
+            spinner.adapter = adapter
+        }
+
+        spinner.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                if (wards[p2] == "WARD 4"){
+                    Toast.makeText(context,"Sorry, We currently dont provide service in your area",Toast.LENGTH_LONG).show()
+                }else {
+                    dbref.child(uid).child("ward").setValue(wards[p2])
+                }
+                }
+
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+
+        }
 
         db.child(uid).addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {

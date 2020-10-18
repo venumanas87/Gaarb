@@ -107,8 +107,8 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:text="cancel pickup"
-        android:backgroundTint="@color/lihtgrey"
+        android:text="@string/cancel_pickup"
+        android:backgroundTint="@color/grey_600"
         app:cornerRadius="10dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/order_history_btn"
@@ -119,7 +119,7 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:text="pickup history"
+        android:text="@string/pickup_history"
         android:backgroundTint="@color/colorPrimaryDark"
         app:cornerRadius="10dp"
         android:layout_centerHorizontal="true"

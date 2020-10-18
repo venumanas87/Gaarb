@@ -21,14 +21,38 @@
         android:textColor="@color/black_70"
         android:fontFamily="@font/questrial"
         android:text="@string/please_choose_the_approx_weight_of_your_garbage"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="20dp"/>
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="20dp"
+       />
+
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/txt11"
+      android:layout_marginBottom="120dp"
+      android:orientation="vertical">
+
+
    <RelativeLayout
        android:layout_width="match_parent"
-       android:layout_below="@id/txt11"
        android:layout_marginTop="40dp"
-       android:id="@+id/rl11"
+       android:layout_marginHorizontal="15dp"
        android:layout_height="wrap_content">
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="@string/plastic"
+         android:fontFamily="@font/questrial"
+         android:textSize="20sp"
+         android:id="@+id/n"/>
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/amt"
+           android:layout_alignParentEnd="true"/>
+
     <EditText
         android:layout_width="100dp"
         android:layout_height="60dp"
@@ -37,6 +61,7 @@
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/questrial"
         android:textAlignment="center"
+        android:layout_marginTop="40dp"
         android:textSize="30sp"
         android:inputType="number" />
     <org.angmarch.views.NiceSpinner
@@ -53,64 +78,228 @@
         android:backgroundTint="@color/colorPrimaryDark"
         android:layout_marginHorizontal="40dp"
         android:id="@+id/weight_slider"
-        android:valueFrom="0"
+        android:valueFrom="5"
         android:stepSize="1"
         android:valueTo="100"
         android:layout_below="@id/wtET"
         />
    </RelativeLayout>
 
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_marginTop="40dp"
+          android:layout_marginHorizontal="15dp"
+          android:layout_height="wrap_content">
 
- <TextView
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:text="@string/please_select_the_types_nof_garbage"
-     android:layout_below="@id/rl11"
-     android:layout_marginTop="80dp"
-     android:textSize="20sp"
-     android:id="@+id/txt12"
-     android:textColor="@color/black_70"
-     android:fontFamily="@font/questrial"
-     android:layout_marginStart="20dp"/>
-    
-    
-   <RelativeLayout
-       android:layout_width="300dp"
-       android:layout_height="wrap_content"
-       android:layout_below="@id/txt12"
-       android:layout_marginTop="50dp"
-       android:layout_centerHorizontal="true"
-       android:layout_marginBottom="80dp"
-       android:orientation="horizontal">
-       <CheckBox
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:id="@+id/wetG"
-           android:text="@string/wet_garbage"
-           />
-       <CheckBox
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:id="@+id/dryG"
-           android:text="@string/dry_garbage"
-           android:layout_alignParentEnd="true"
-           />
-       <CheckBox
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:id="@+id/medicalG"
-           android:text="@string/medical_dump"
-           android:layout_below="@id/wetG"
-           android:layout_marginTop="10dp"/>
-       <CheckBox
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:id="@+id/chemicalG"
-           android:text="@string/hazardous_dump"
-           android:layout_below="@id/wetG"
-           android:layout_alignParentEnd="true"
-           android:layout_marginTop="10dp"/>
-   </RelativeLayout>
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/paper"
+              android:fontFamily="@font/questrial"
+              android:textSize="20sp"
+              android:id="@+id/n1"/>
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/amt1"
+              android:layout_alignParentEnd="true"/>
+
+          <EditText
+              android:layout_width="100dp"
+              android:layout_height="60dp"
+              android:id="@+id/wtET1"
+              android:background="@drawable/search_bar"
+              android:layout_centerHorizontal="true"
+              android:fontFamily="@font/questrial"
+              android:textAlignment="center"
+              android:layout_marginTop="40dp"
+              android:textSize="30sp"
+              android:inputType="number" />
+          <org.angmarch.views.NiceSpinner
+              android:id="@+id/nice_spinner1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_toEndOf="@id/wtET1"
+              android:layout_above="@id/weight_slider1"
+              android:layout_marginStart="10dp"/>
+          <com.google.android.material.slider.Slider
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="20dp"
+              android:backgroundTint="@color/colorPrimaryDark"
+              android:layout_marginHorizontal="40dp"
+              android:id="@+id/weight_slider1"
+              android:valueFrom="5"
+              android:stepSize="1"
+              android:valueTo="100"
+              android:layout_below="@id/wtET1"
+              />
+      </RelativeLayout>
+
+
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_marginTop="40dp"
+          android:layout_marginHorizontal="15dp"
+          android:layout_height="wrap_content">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Metal (\u20b945/kg)"
+              android:fontFamily="@font/questrial"
+              android:textSize="20sp"
+              android:id="@+id/n2"/>
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/amt2"
+              android:layout_alignParentEnd="true"/>
+
+          <EditText
+              android:layout_width="100dp"
+              android:layout_height="60dp"
+              android:id="@+id/wtET2"
+              android:background="@drawable/search_bar"
+              android:layout_centerHorizontal="true"
+              android:fontFamily="@font/questrial"
+              android:textAlignment="center"
+              android:layout_marginTop="40dp"
+              android:textSize="30sp"
+              android:inputType="number" />
+          <org.angmarch.views.NiceSpinner
+              android:id="@+id/nice_spinner2"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_toEndOf="@id/wtET2"
+              android:layout_above="@id/weight_slider2"
+              android:layout_marginStart="10dp"/>
+          <com.google.android.material.slider.Slider
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="20dp"
+              android:backgroundTint="@color/colorPrimaryDark"
+              android:layout_marginHorizontal="40dp"
+              android:id="@+id/weight_slider2"
+              android:valueFrom="5"
+              android:stepSize="1"
+              android:valueTo="100"
+              android:layout_below="@id/wtET2"
+              />
+      </RelativeLayout>
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_marginTop="40dp"
+          android:layout_marginHorizontal="15dp"
+          android:layout_height="wrap_content">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/other"
+              android:fontFamily="@font/questrial"
+              android:textSize="20sp"
+              android:id="@+id/n3"/>
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/amt3"
+              android:layout_alignParentEnd="true"/>
+          <EditText
+              android:layout_width="100dp"
+              android:layout_height="60dp"
+              android:id="@+id/wtET3"
+              android:background="@drawable/search_bar"
+              android:layout_centerHorizontal="true"
+              android:fontFamily="@font/questrial"
+              android:textAlignment="center"
+              android:layout_marginTop="40dp"
+              android:textSize="30sp"
+              android:inputType="number" />
+          <org.angmarch.views.NiceSpinner
+              android:id="@+id/nice_spinner3"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_toEndOf="@id/wtET3"
+              android:layout_above="@id/weight_slider3"
+              android:layout_marginStart="10dp"/>
+          <com.google.android.material.slider.Slider
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="20dp"
+              android:backgroundTint="@color/colorPrimaryDark"
+              android:layout_marginHorizontal="40dp"
+              android:id="@+id/weight_slider3"
+              android:valueFrom="5"
+              android:stepSize="1"
+              android:valueTo="100"
+              android:layout_below="@id/wtET3"
+              />
+      </RelativeLayout>
+      
+      
+  <com.google.android.material.card.MaterialCardView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginVertical="20dp"
+      android:layout_marginHorizontal="20dp">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+
+          <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginVertical="10dp"
+              android:layout_marginHorizontal="20dp"
+              >
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Total Weight"
+                  android:fontFamily="@font/questrial"
+                  />
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/totalWeight"
+                  android:text="100kgs"
+                  android:layout_alignParentEnd="true"
+                  android:fontFamily="@font/questrial"/>
+          </RelativeLayout>
+          <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginVertical="10dp"
+              android:layout_marginHorizontal="20dp"
+              >
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Total Amount"
+                  android:fontFamily="@font/questrial"
+                  />
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/toatlAmount"
+                  android:text="\u20B9"
+                  android:layout_alignParentEnd="true"
+                  android:fontFamily="@font/questrial"/>
+          </RelativeLayout>
+
+
+
+      </LinearLayout>
+  </com.google.android.material.card.MaterialCardView>
+      
+
+  </LinearLayout>
+
+
 
 
 

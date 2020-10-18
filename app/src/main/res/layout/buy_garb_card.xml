@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        app:cardCornerRadius="15dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_collected_at"
+                android:fontFamily="@font/questrial"
+                android:textColor="@color/black"
+                android:id="@+id/orderId"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/idTV"
+                android:text="03.10.2020 at 02:26"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/questrial"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dry Waste || Wet WAste"
+                android:layout_below="@id/orderId"
+                android:layout_marginHorizontal="20dp"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/add"
+                android:fontFamily="@font/questrial"
+                android:layout_marginVertical="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/questrial"
+                android:text="@string/weight"
+                android:layout_below="@id/add"
+                android:id="@+id/wt"
+                android:textSize="17sp"
+                android:textColor="@color/black_70"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/wt"
+                android:id="@+id/wtTV"
+                android:text="174.0 kgs"
+                android:layout_below="@id/add"
+                android:textSize="17sp"
+                android:fontFamily="@font/questrial"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/questrial"
+                android:text="@string/amount"
+                android:layout_toStartOf="@id/amtTV"
+                android:layout_below="@id/add"
+                android:id="@+id/amt"
+                android:textSize="17sp"
+                android:textColor="@color/black_70"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="Rs. 20"
+                android:id="@+id/amtTV"
+                android:layout_below="@id/add"
+                android:textSize="17sp"
+                android:fontFamily="@font/questrial"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verified"
+                android:textColor="@color/colorPrimary"
+                android:layout_centerVertical="true"
+                android:id="@+id/status"/>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/buy"
+                android:layout_alignParentEnd="true"
+                android:backgroundTint="@color/orange"
+                android:id="@+id/buyBtn"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</RelativeLayout>

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
+import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -33,6 +34,7 @@ class GoalAdapter(private val goalList: List<Goal>): RecyclerView.Adapter<GoalAd
         var progressBar = view.findViewById<RoundCornerProgressBar>(R.id.progress)
         var doitBtn = view.findViewById<MaterialButton>(R.id.doitBtn)
         var mrl = view.findViewById<CardView>(R.id.grl)
+        var progress:ProgressBar = view.findViewById(R.id.progress_circular)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GoalHolder {
@@ -56,12 +58,14 @@ class GoalAdapter(private val goalList: List<Goal>): RecyclerView.Adapter<GoalAd
             0->{
 
                 vm.getUser().observe(holder.progressBar.context as LifecycleOwner, Observer {
+                    holder.progress.visibility = View.GONE
                     holder.progressBar.max = goal.tasks!!.toFloat()
                     holder.progressBar.progress = it.tw.toFloat()
                     holder.taskTV.text = "${it.tw}/${goal.tasks}"
                     if (it.tw.toInt() >= goal.tasks!!){
                         holder.doitBtn.isEnabled = false
                         holder.doitBtn.text = "Done"
+                        holder.taskTV.text = "${goal.tasks}/${goal.tasks}"
                     }
                 })
                 holder.doitBtn.setOnClickListener {
@@ -71,12 +75,14 @@ class GoalAdapter(private val goalList: List<Goal>): RecyclerView.Adapter<GoalAd
 
             1->{
                 vm.getUser().observe(holder.progressBar.context as LifecycleOwner, Observer {
+                    holder.progress.visibility = View.GONE
                     holder.progressBar.max = goal.tasks!!.toFloat()
                     holder.progressBar.progress = it.vm.toFloat()
                     holder.taskTV.text = "${it.vm}/${goal.tasks}"
                     if (it.vm.toInt() >= goal.tasks!!){
                         holder.doitBtn.isEnabled = false
                         holder.doitBtn.text = "Done"
+                        holder.taskTV.text = "${goal.tasks}/${goal.tasks}"
                     }
                 })
                 holder.doitBtn.setOnClickListener {
@@ -84,6 +90,7 @@ class GoalAdapter(private val goalList: List<Goal>): RecyclerView.Adapter<GoalAd
                 }
             }
             2->{
+                holder.progress.visibility = View.GONE
                 holder.taskTV.text = "0/${goal.tasks}"
             }
 
